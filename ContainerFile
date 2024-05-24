@@ -65,8 +65,7 @@ RUN rpm-ostree install \
     blender \
     rocm-hip-devel \
     gparted \
-    kitty \
-    obs-studio-plugin-vkcapture
+    kitty
 
 RUN rm -rf /usr/bin/steamos-session-select
 COPY drop_ins/usr /usr
