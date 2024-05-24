@@ -65,7 +65,8 @@ RUN rpm-ostree install \
     blender \
     rocm-hip-devel \
     gparted \
-    kitty
+    kitty \
+    waybar
 
 RUN rm -rf /usr/bin/steamos-session-select
 COPY drop_ins/usr /usr
