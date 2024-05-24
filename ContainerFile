@@ -1,0 +1,96 @@
+FROM ghcr.io/ublue-os/bazzite-deck-gnome:latest AS pyrite
+
+
+
+################################################### install stuff
+RUN rpm-ostree install \
+    ranger \
+    ncdu \
+    python3-beautifulsoup4 \
+    scanmem \
+    screen \
+    nano \
+    xdg-desktop-portal \
+    xdg-desktop-portal-devel \
+    xdg-desktop-portal-gtk \
+    xdg-desktop-portal-wlr \
+    xdg-desktop-portal-lxqt \
+    xdg-desktop-portal-xapp \
+    nwg-panel \
+    wlr-randr \
+    nwg-wrapper \
+    qt5-qtwayland \
+    qt6-qtwayland \
+    sway \
+    kitty \
+    nwg-launchers \
+    plymouth-theme-breeze.x86_64 \
+    plymouth-plugin-script.x86_64 \
+    htop \
+    grimshot \
+    gtk-layer-shell \
+    gtk3 \
+    gtk4 \
+    egl-wayland \
+    gedit \
+    binutils \
+    yt-dlp \
+    egl-wayland-devel \
+    wayland-devel \
+    python3-cairo-devel \
+    libxkbcommon-devel \
+    pangomm-devel \
+    python3-devel \
+    qt6-linguist \
+    cairo-devel \
+    gobject-introspection-devel \
+    cairo-gobject-devel \
+    gdb \
+    network-manager-applet \
+    fuse-sshfs \
+    python3-bluez \
+    bluez-cups \
+    nmap \
+    nmap-ncat \
+    python3-nmap \
+    iftop \
+    iperf3 \
+    wireshark \
+    python3-pyshark \
+    bluez \
+    bluez-tools \
+    blueman \
+    android-tools \
+    dunst \
+    blender \
+    rocm-hip-devel \
+    gparted \
+    kitty \
+    obs-studio-plugin-vkcapture
+
+
+COPY drop_ins/usr/share/nwg-launchers /usr/share/nwg-launchers
+COPY drop_ins/usr/etc/xdg/waybar /usr/etc/xdg/waybar
+COPY drop_ins/usr/etc/sway /usr/etc/sway
+
+COPY Drop_ins_41/usr /usr
+RUN chmod +x /usr/share/nwg-launchers/nwgbar/reload-desktop.sh && \
+    chmod +x /usr/share/nwg-launchers/nwgbar/logout.sh && \
+    chmod +x /usr/share/nwg-launchers/nwg-wrapper/controller.py && \
+    chmod +x /usr/etc/sway/startup_script.sh && \
+    chmod +x /usr/etc/sway/switch-workspace && \
+    chmod -R 775 /usr/bin/steam* && \
+    chown -R root:root /usr/bin/steam*
+
+################################################## edit files 
+RUN sed -i 's/\(Bazzite GNOME\)/Pyrite/g' /usr/lib/os-release
+##################################################### add anything for python
+RUN mkdir -p /var/usrlocal/lib64
+RUN pip3 install paramiko hidapi
+##################################################### onscreen keyboard 
+RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
+RUN chmod +x /usr/bin/wvkbd
+
+################################################## cleanup and commit image
+RUN rm -rf /tmp/* /var/* && \
+  ostree container commit
