@@ -68,7 +68,9 @@ RUN rpm-ostree install \
     kitty \
     obs-studio-plugin-vkcapture
 
+RUN rm -rf /usr/bin/steamos-session-select
 COPY drop_ins/usr /usr
+COPY drop_ins/usr/bin/steamos-session-select /usr/bin/steamos-session-select
 COPY drop_ins/usr/share/nwg-launchers /usr/share/nwg-launchers
 COPY drop_ins/usr/etc/xdg/waybar /usr/etc/xdg/waybar
 COPY drop_ins/usr/etc/sway /usr/etc/sway
@@ -79,7 +81,8 @@ RUN chmod +x /usr/share/nwg-launchers/nwgbar/reload-desktop.sh && \
     chmod +x /usr/etc/sway/startup_script.sh && \
     chmod +x /usr/etc/sway/switch-workspace && \
     chmod -R 775 /usr/bin/steam* && \
-    chown -R root:root /usr/bin/steam*
+    chown -R root:root /usr/bin/steam* &&
+    chmod +x /usr/bin/start-sway
 
 ################################################## edit files 
 RUN sed -i 's/\(Bazzite GNOME\)/Pyrite/g' /usr/lib/os-release
