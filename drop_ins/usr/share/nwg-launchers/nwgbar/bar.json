@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Reload Session",
+    "exec": "/usr/share/nwg-launchers/nwgbar/reload-desktop.sh",
+    "icon": "/usr/share/nwg-launchers/nwgbar/system-hibernate.svg"
+  },
+
+  {
+    "name": "GameMode",
+    "exec": "/usr/share/nwg-launchers/nwgbar/logout.sh",
+    "icon": "/usr/share/nwg-launchers/nwgbar/system-log-out.svg"
+  },
+  {
+    "name": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/usr/share/nwg-launchers/nwgbar/system-reboot.svg"
+  },
+  {
+    "name": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/usr/share/nwg-launchers/nwgbar/system-shutdown.svg"
+  }
+]
