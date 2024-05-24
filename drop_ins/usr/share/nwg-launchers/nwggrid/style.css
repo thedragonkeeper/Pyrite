@@ -2,7 +2,7 @@ button, label, image {
     background: none;
     border-style: none;
     box-shadow: none;
-    color: #149414;
+    color: #FFD700;
 }
 
 button {
@@ -25,7 +25,7 @@ button:checked {
 
 #searchbox {
     background: none;
-    border-color: #149414;
+    border-color: #FFD700;
     color: #ccc;
     margin-top: 20px;
     margin-bottom: 20px
