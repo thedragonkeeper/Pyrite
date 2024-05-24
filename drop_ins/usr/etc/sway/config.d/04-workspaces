@@ -1,0 +1,21 @@
+#
+# Workspaces:
+#
+# Switch to workspace
+bindsym --no-repeat $mod+Right exec /usr/etc/sway/switch-workspace next
+bindsym --no-repeat $mod+Left exec /usr/etc/sway/switch-workspace prev
+bindsym --no-repeat $mod2+Right exec /usr/etc/sway/switch-workspace window next
+bindsym --no-repeat $mod2+Left exec /usr/etc/sway/switch-workspace window prev
+
+
+bindsym --no-repeat $mod+Up workspace number 1; exec "echo 1 > $SOVSOCK"
+bindsym --no-repeat $mod+Down workspace next
+
+
+## shows controller prompts
+bindsym --no-repeat $mod+$mod3+c exec pkill -f -31 nwg-wrapper
+## toggles desktop script showing
+bindsym --no-repeat $mod+$mod2+$mod3+c exec pkill -f -30 nwg-wrapper
+
+## reload sway
+bindsym --no-repeat $mod+$mod2+$mod3+return reload
