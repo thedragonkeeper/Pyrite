@@ -145,14 +145,14 @@ jobs:
           
     # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
-        uses: Wandalen/wretry.action@latest
+        uses: Wandalen/wretry.action@v3.5.0
         id: push
         if: github.event_name != 'pull_request'
         env:
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ github.token }}
         with:
-          action: redhat-actions/push-to-registry@v2
+          action: redhat-actions/push-to-registry@latest
           attempt_limit: 3
           attempt_delay: 15000
           with: |
