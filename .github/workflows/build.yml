@@ -57,35 +57,13 @@ jobs:
           SHA_SHORT="${GITHUB_SHA::7}"
           COMMIT_TAGS+=("pr-${{ github.event.pull_request.number }}-${FEDORA_VERSION}")
           COMMIT_TAGS+=("${SHA_SHORT}-${FEDORA_VERSION}")
-          if [[ "${{ matrix.is_latest_version }}" == "true" ]] && \
-             [[ "${{ matrix.is_stable_version }}" == "true" ]]; then
-              COMMIT_TAGS+=("pr-${{ github.event.pull_request.number }}")
-              COMMIT_TAGS+=("${SHA_SHORT}")
-          fi
 
-          if [[ ${{ github.ref_name }} == "unstable" ]]; then
-             BUILD_TAGS=("${FEDORA_VERSION}-unstable" "${FEDORA_VERSION}-unstable-${TIMESTAMP}")
-             if [[ "${{ matrix.is_latest_version }}" == "true" ]] && \
-                [[ "${{ matrix.is_stable_version }}" == "true" ]]; then
-                 BUILD_TAGS+=("unstable")
-                 echo "DEFAULT_TAG=unstable" >> $GITHUB_ENV
-             fi
-          elif [[ ${{ github.ref_name }} == "testing" ]]; then
-             BUILD_TAGS=("${FEDORA_VERSION}-testing" "${FEDORA_VERSION}-testing-${TIMESTAMP}")
-             if [[ "${{ matrix.is_latest_version }}" == "true" ]] && \
-                [[ "${{ matrix.is_stable_version }}" == "true" ]]; then
-                 BUILD_TAGS+=("testing")
-                 echo "DEFAULT_TAG=testing" >> $GITHUB_ENV
-             fi
-          else
-             BUILD_TAGS=("${FEDORA_VERSION}" "${FEDORA_VERSION}-${TIMESTAMP}")
-             BUILD_TAGS+=("${FEDORA_VERSION}-stable" "${FEDORA_VERSION}-stable-${TIMESTAMP}")
-             if [[ "${{ matrix.is_latest_version }}" == "true" ]] && \
-                [[ "${{ matrix.is_stable_version }}" == "true" ]]; then
-                 BUILD_TAGS+=("latest" "stable")
-                 echo "DEFAULT_TAG=latest" >> $GITHUB_ENV
-             fi
-          fi
+         BUILD_TAGS=("${FEDORA_VERSION}" "${FEDORA_VERSION}-${TIMESTAMP}")
+         BUILD_TAGS+=("${FEDORA_VERSION}-stable" "${FEDORA_VERSION}-stable-${TIMESTAMP}")
+         if [[ "${{ matrix.is_latest_version }}" == "true" ]] && \
+            [[ "${{ matrix.is_stable_version }}" == "true" ]]; then
+             BUILD_TAGS+=("latest" "stable")
+             echo "DEFAULT_TAG=latest" >> $GITHUB_ENV
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
