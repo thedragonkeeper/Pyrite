@@ -7,3 +7,5 @@ RUN rpm-ostree install \
   steamdeck \
   steamdeck-kmod && \
    ostree container commit
+
+RUN ls /usr && echo "---------------" && ls /usr/bin
