@@ -2,29 +2,6 @@ name: Build Pyrite
 on:
   schedule:
     - cron: '00 17 * * 2,4,6'
-  pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
-      - 'repo_content/**'
-      - 'spec_files/**'
-      - 'post_install_files/**'
-      - 'press_kit/**'
-      - '.github/workflows/build_iso.yml'
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
-      - 'repo_content/**'
-      - 'spec_files/**'
-      - 'post_install_files/**'
-      - 'press_kit/**'
-      - '.github/workflows/build_iso.yml'
-  merge_group:
   workflow_dispatch:
 env:
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
