@@ -1,4 +1,4 @@
-name: Build Pyrite
+name: Build Pyrite Rawhide
 on:
   schedule:
     - cron: '00 17 * * 2,4,6'
