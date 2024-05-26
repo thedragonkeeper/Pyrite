@@ -86,6 +86,10 @@ RUN chmod +x /usr/share/nwg-launchers/nwgbar/reload-desktop.sh && \
 
 ################################################## edit files 
 RUN sed -i 's/\(Bazzite GNOME\)/Pyrite/g' /usr/lib/os-release
+RUN sed -i 's/Silverblue/Pyrite/g' /usr/lib/os-releas
+RUN sed -i 's/silverblue/pyrite/g' /usr/lib/os-releas
+## fix to swap back to gamemode
+RUN sed -i 's/systemctl --user unset-environment DISPLAY XAUTHORITY/systemctl --user unset-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY SWAYSOCK/g' /usr/bin/gamescope-session-plus
 ##################################################### add anything for python
 RUN mkdir -p /var/usrlocal/lib64
 RUN pip3 install paramiko hidapi
