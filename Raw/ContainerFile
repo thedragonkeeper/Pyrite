@@ -1,6 +1,6 @@
 FROM quay.io/fedora-ostree-desktops/sericea:rawhide as pyrite
 
-RUN curl -Lo /etc/yum.repos.d/_copr_kylegospo-steamdeck-kmod.repo https://copr.fedorainfracloud.org/coprs/kylegospo/steamdeck-kmod/repo/fedora-rawhide/kylegospo-steamdeck-kmod-fedora-rawhide.repo \
+RUN curl -Lo /etc/yum.repos.d/_copr_ublue-os-akmod-kmod.repo https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-rawhide/ublue-os-akmods-fedora-rawhide.repo \
   &&  ostree container commit
 
 RUN rpm-ostree install \
