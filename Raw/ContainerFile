@@ -4,7 +4,47 @@ RUN curl -Lo /etc/yum.repos.d/_copr_ublue-os-akmod-kmod.repo https://copr.fedora
   &&  ostree container commit
 
 RUN rpm-ostree install \
+  jupiter-kmod \
+  jupiter \
+  ayaneo-platform \
+  ayaneo-platform-kmod \
+  xone-kmod \
+  xone-kmod-common \
+  openrgb-kmod \
+  openrgb \
+  gcadapter_oc \
+  gcadapter_oc-kmod \
+  openrazer-kmod-common \
+  openrazer-kmod \
+  ryzen-smu \
+  ryzen-smu-kmod \
+  nct6687d-kmod \
+  nct6687d \
+  winesync-kmod \
+  winesync \
   steamdeck \
-  steamdeck-kmod && \
-   ostree container commit
+  steamdeck-kmod \
+  bmi260 \
+  bmi260-kmod \
+  rtl8814au \
+  rtl8814au-kmod \
+  rtl88xxau \
+  rtl88xxau-kmod \
+  zenergy \
+  ayn-platform-kmod \
+  zenergy-kmod \
+  bmi323 \
+  bmi323-kmod \
+  asus-wmi \
+  asus-wmi-kmod \
+  bmi160 \
+  bmi160-kmod \
+  zenpower3-kmod \
+  zenpower3 \
+  ayn-platform \
+  framework-laptop-kmod \
+  framework-laptop-kmod-common \
+  gasket \
+  gasket-kmod && \
+  ostree container commit
 
