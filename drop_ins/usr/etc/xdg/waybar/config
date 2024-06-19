@@ -9,7 +9,7 @@
     // Choose the order of the modules
 
     "modules-left":[  "custom/launcher", "wlr/workspaces", "wlr/taskbar"],
-    "modules-right":[ "idle_inhibitor", "custom/snip",  "pulseaudio", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
+    "modules-right":[ "deck_screen", "idle_inhibitor", "custom/snip",  "pulseaudio", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
     // Modules configuration
 
     "wlr/taskbar": {
@@ -20,6 +20,11 @@
         "on-click": "minimize",
         "on-click-middle": "close",
         "on-click-right": "activate"
+    },
+    "deck_screen":{
+        "format": "🖵",
+        "on-click": "swaymsg output eDP-1 enable",
+        "on-click-right": "swaymsg output eDP-1 disable"
     },
     "wlr/workspaces": {
     	"format": "{name}: {icon}",
@@ -60,7 +65,7 @@
     "clock": {
         "timezone": "Europe/London",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%H:%M | %Y-%m-%d}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -118,7 +123,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "flatpak run org.pulseaudio.pavucontrol"
     },
     "custom/launcher":{
         "format": "Ⓢ",
@@ -132,6 +137,6 @@
     },
     "custom/snip":{
         "format": "📷",
-        "on-click": "grimshot --notify save area ~/Pictures/$(date +%s).png"
+        "on-click": "sleep 5; grimshot --notify save area ~/Pictures/$(date +%s).png"
     }
 }
