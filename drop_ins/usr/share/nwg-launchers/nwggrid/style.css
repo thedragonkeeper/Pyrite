@@ -12,7 +12,7 @@ button {
 }
 
 button:hover {
-    background-color: rgba (252, 186, 3, 0.1);
+    background-color: rgba (255, 215, 0, 0.1);
 }
 
 button:focus {
@@ -20,7 +20,7 @@ button:focus {
 }
 
 button:checked {
-    background-color: rgba (255, 255, 255, 0.1);
+    background-color: rgba (255, 215, 0, 0.1);
 }
 
 #searchbox {
@@ -32,7 +32,7 @@ button:checked {
 }
 
 #separator {
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: rgba(255, 215, 0, 0.5);
     margin-left: 500px;
     margin-right: 500px;
     margin-top: 10px;
