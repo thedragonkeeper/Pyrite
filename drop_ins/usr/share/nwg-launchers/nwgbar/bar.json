@@ -1,5 +1,10 @@
 [
   {
+    "name": "Toggle Deck Screen",
+    "exec": "swaymsg output eDP-1 toggle",
+    "icon": "/usr/share/nwg-launchers/nwgbar/system-hibernate.svg"
+  },
+  {
     "name": "Reload Session",
     "exec": "/usr/share/nwg-launchers/nwgbar/reload-desktop.sh",
     "icon": "/usr/share/nwg-launchers/nwgbar/system-hibernate.svg"
