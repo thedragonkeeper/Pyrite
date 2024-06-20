@@ -9,7 +9,7 @@
     // Choose the order of the modules
 
     "modules-left":[  "custom/launcher", "wlr/workspaces", "wlr/taskbar"],
-    "modules-right":[ "deck_screen", "idle_inhibitor", "custom/snip",  "pulseaudio", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
+    "modules-right":[ "custom/deck_screen", "idle_inhibitor", "custom/snip",  "pulseaudio", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
     // Modules configuration
 
     "wlr/taskbar": {
@@ -21,23 +21,18 @@
         "on-click-middle": "close",
         "on-click-right": "activate"
     },
-    "deck_screen":{
-        "format": "🖵",
-        "on-click": "swaymsg output eDP-1 enable",
-        "on-click-right": "swaymsg output eDP-1 disable"
-    },
     "wlr/workspaces": {
-    	"format": "{name}: {icon}",
-    	"format-icons": {
-    		"1": "",
-    		"2": "",
-    		"3": "",
-    		"4": "",
-    		"5": "",
-    		"active": "",
-    		"default": ""
-    	   },
-    	"sort-by-number": true
+	"format": "{name}: {icon}",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"active": "",
+		"default": ""
+	   },
+	"sort-by-number": true
     },
     "keyboard-state": {
         "numlock": true,
