@@ -4,7 +4,7 @@ exec nwg-wrapper -s /usr/share/nwg-launchers/nwg-wrapper/controller.py -c /usr/s
 exec /usr/etc/sway/startup_script.sh
 
 #on screen keyboard
-exec wvkbd --hidden
+exec /home/dk/ENV/wvkbd --hidden
 
 ## network applet tray
 exec nm-applet --indicator
