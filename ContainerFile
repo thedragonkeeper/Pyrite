@@ -94,8 +94,8 @@ RUN sed -i 's/systemctl --user unset-environment DISPLAY XAUTHORITY/systemctl --
 RUN mkdir -p /var/usrlocal/lib64
 RUN pip3 install paramiko hidapi
 ##################################################### onscreen keyboard 
-RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
-RUN chmod +x /usr/bin/wvkbd
+# RUN git clone https://github.com/jjsullivan5196/wvkbd && cd wvkbd && make && cp wvkbd-mobintl /usr/bin/wvkbd && cd .. && rm -rf wvkbd
+# RUN chmod +x /usr/bin/wvkbd
 
 ################################################## cleanup and commit image
 RUN rm -rf /tmp/* /var/* && \
