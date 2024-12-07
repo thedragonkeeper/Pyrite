@@ -14,7 +14,6 @@ RUN rpm-ostree install \
     xdg-desktop-portal-devel \
     xdg-desktop-portal-gtk \
     xdg-desktop-portal-wlr \
-    xdg-desktop-portal-lxqt \
     xdg-desktop-portal-xapp \
     nwg-panel \
     wlr-randr \
