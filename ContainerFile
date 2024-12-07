@@ -79,8 +79,8 @@ RUN chmod +x /usr/share/nwg-launchers/nwgbar/reload-desktop.sh && \
     chmod +x /usr/share/nwg-launchers/nwg-wrapper/controller.py && \
     chmod +x /usr/etc/sway/startup_script.sh && \
     chmod +x /usr/etc/sway/switch-workspace && \
-    chmod -R 775 /usr/bin/steam* && \
-    chown -R root:root /usr/bin/steam* && \
+    chmod 775 /usr/bin/steam* && \
+    chown root:root /usr/bin/steam* && \
     chmod +x /usr/bin/start-sway
 
 ################################################## edit files 
